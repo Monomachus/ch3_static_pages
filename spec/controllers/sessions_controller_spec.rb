@@ -58,19 +58,13 @@ describe SessionsController do
     end
   end 
   
-
-  # describe "GET 'create'" do
-  #   it "should be successful" do
-  #     get 'create'
-  #     response.should be_success
-  #   end
-  # end
-  # 
-  # describe "GET 'destroy'" do
-  #   it "should be successful" do
-  #     get 'destroy'
-  #     response.should be_success
-  #   end
-  # end
+  describe "DELETE 'destroy'" do
+    it "should sign a user out" do
+      test_sign_in(Factory(:user))
+      delete :destroy
+      controller.should_not be_signed_in
+      response.should redirect_to(root_path)
+    end
+  end
 
 end
