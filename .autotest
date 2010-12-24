@@ -1,1 +1,2 @@
 require 'autotest/growl'
+Autotest::Growl::one_notification_per_run = true
