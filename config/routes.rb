@@ -1,4 +1,5 @@
 Ch3StaticPages::Application.routes.draw do
+  resources :microposts, :only => [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
 

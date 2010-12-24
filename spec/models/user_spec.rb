@@ -150,5 +150,12 @@ describe User do
     it "should be in the reverse order of appearing" do
       @user.microposts.should == [@mp2, @mp1]
     end
+    
+    it "should destroy associated microposts" do
+      @user.destroy
+      [@mp1, @mp2].each do |micropost|
+        Micropost.find_by_id(micropost.id).should be_nil
+      end
+    end
   end
 end
