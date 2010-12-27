@@ -1,7 +1,13 @@
 Ch3StaticPages::Application.routes.draw do
   resources :microposts, :only => [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :users
+  resources :relationships, :only => [:create, :destroy]
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   match "/signup", :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
