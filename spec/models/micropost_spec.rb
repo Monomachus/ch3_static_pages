@@ -40,4 +40,6 @@ describe Micropost do
       @user.microposts.build(:content => "a" * 141).should_not be_valid
     end
   end
+  
+
 end
